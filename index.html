@@ -1,12 +1,301 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<title>Google Classroom</title>
+      <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
+	<style>
+		/* Your CSS code goes here */
+		/* Style Settings */
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css');
+:root {
+    --bgColor:#1C1C1C;
+    --accentColor: #E6E6E6;
+    --bgColorg:#000000;
+    --accentColorg: #d4af37;
+    --bgColors:#000000;
+    --accentColors: #a8a8a9;
+    --bgColorb:#000000;
+    --accentColorb: #cd7f32;
+    --font: 'Karla', sans-serif;
+    --firstName: 'John';
+    --lastName: 'Doe';
+}
+
+html{
+    scroll-behavior: smooth
+}
+.box-image{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+
+}
+.badge {
+  background-color: BlueViolet;
+  color: white;
+  padding: 4px 8px;
+  text-align: center;
+  border-radius: 5px;
+}
+body{
+    background-color: var(--bgColor);
+}
+
+#userPhoto{
+    width: 110px;
+    height: 110px;
+    display: block;
+    margin: 35px auto 20px;
+    border-radius: 50%;
+}
+
+*{
+    font-family: var(--font);
+}
+
+#userName{
+    color: #bbb;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+    display: block;
+    font-family: var(--font);
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+h5{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E6E6E6;
+    font-family: var(--font);
+    font-style: italic;;
+}
+p{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E6E6E6;
+    font-family: var(--font);
+    font-style: italic;;
+}
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E6E6E6;
+    font-family: var(--font);
+}
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E6E6E6;
+    font-family: var(--font);
+}
+h4{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E6E6E6;
+    font-family: var(--font);
+}
+h6{
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(136, 136, 136);
+    font-family: var(--font);
+}
+.atrib{
+    text-align: center;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: rgb(136, 136, 136);
+    font-family: var(--font);
+    padding: 17px;
+}
+
+.games{
+    display: flex;
+    width: 90%;
+    align-content: flex-start;
+    justify-content: center;
+    position: absolute;
+    flex-wrap: wrap;
+    left: 50%;
+    transform: translate(-50%, 0%) !important;
+}
+
+.games a:not(.epci){
+    scroll-margin-top: 2em;
+    outline:transparent;
+    display: flex;
+    width: 250px;
+    height: 250px;
+    background: #292929;
+    margin: 5px;
+    border-radius:10px;
+    justify-content: center;
+    align-items: flex-end;
+    box-sizing: border-box;
+    padding:8px;
+    color:#fff;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+    transition: .2s;
+}
+
+.games a:not(.epci) b{
+    z-index:5;
+}
+
+.active{
+    display: flex !important;
+}
+
+.games a:not(.epci) img{
+    position: absolute;
+    top:0px;
+    left:0px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index:2;
+}
+.games a:not(.epci):before{
+    content: "";
+    background: rgba(0,0,0,0.25);
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index:3;
+}
+
+.bar{
+    background: #000;
+    height: 0px;
+    width:100%;
+    transition: .4s;
+    z-index:4;
+    position: absolute;
+    bottom:0px;
+    left:0px;
+}
+
+.games a:not(.epci):hover .bar{
+    height:40px;
+}
+
+.games a:not(.epci):hover{
+    filter: brightness(95%);
+    translate: 0 1px;
+    box-shadow: none;
+}
+
+.game_title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.search{
+    width:300px;
+    height:30px;
+    background: #292929;
+    border:1px solid #353535;
+    border-radius:5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+    color:#fff;
+    padding-left:10px;
+    transition: .2s;
+}
+
+.button{
+    width:100px;
+    margin-left:5px;
+    cursor:pointer;
+    height:30px;
+    background: #292929;
+    border:1px solid #353535;
+    border-radius:5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+    color:#fff;
+    transition: .2s;
+    padding-right:5px;
+}
+
+.button:hover,.button:focus{
+    filter: brightness(95%);
+    box-shadow: none;
+    outline: none;
+    border-color:#00bb00;
+}
+
+.search:focus{
+    filter: brightness(95%);
+    box-shadow: none;
+    outline: none;
+    border-color:#00bb00;
+}
+
+.games a:not(.epci) .badge{
+    position: absolute;
+    top:5px;
+    right:5px;
+    z-index:6;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+}
+
+.badge2p{
+    position: absolute;
+    top:5px;
+    left:5px;
+    z-index:6;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+}
+	</style>
+</head>
+<body>
+	<div id="password-form">
+		<h2>For security reasons, please answer the following question. What is the name of the iconic green creature in the popular video game, Minecraft?</h2>
+		<form action="#" method="post">
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password">
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+	<div id="website-content" style="display: none;">
+		<!-- Your website content goes here -->
+		<!DOCTYPE html>
+<html>
     <head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D9P860JZRB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D9P860JZRB');
+</script>
+        <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ghb26denss");
+</script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
-        <title>Odd Games</title>
-      <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
-        <meta property="og:title" content="Play unblocked games online" />
-        <meta property="og:description" content="All of the most popular games playable in your browser! With games such as Subway Surfers, 1v1.lol, Retrobowl, Slope, and many more fun games!" />
+     
+        <meta property="og:title" content="Play poopy fart online" />
+        <meta property="og:description" content="All of the most popular farts playable in your browser! With farts such as Subway Surfers, 1v1.lol, Retrobowl, Slope, and many more fun farts!" />
         <link rel="stylesheet" href="css/style.css">
         <script src="https://kit.fontawesome.com/d0c5025972.js" crossorigin="anonymous"></script>
         <meta name="theme-color" content="var(--bgColor)">
@@ -14,13 +303,13 @@
     <body>
             <!--Page Content Below-->
         <img id="userPhoto" class="animated rubberBand fast" src="icons/logo.png" alt="Your Name's Photo">
-        <h1 class="animated jello game_title">Unblocked Games</h1>
+        <h1 class="animated jello game_title">Poopy Games</h1>
         <div id="links" class="animated fadeInLeft delay-1s games">
-            <div class="game_title"><input placeholder="Search" id="search" class="search" onkeyup="search_it()" type="search"><select id="tags" class="button" onclick="search_it()"><option value="all">All</option><option value="pop">Popular</option><option value="two">Two Player</option><option value="stream">Streaming</option><option value="bad">Bad Games</option></select></div>
-            <h2 class="animated jello game_title">All Games:</h2>
+            <div class="game_title"><input placeholder="Search" id="search" class="search" onkeyup="search_it()" type="search"><select id="tags" class="button" onclick="search_it()"><option value="all">All Farts</option><option value="pop">Popular</option><option value="two">Two Player</option><option value="stream">Streaming (Broken)</option><option value="bad">Bad Farts</option></select></div>
+            <h2 class="animated jello game_title">All farts:</h2>
             <a id="1 (2048 game)" class="link" href="./play/1/" target="_blank"><span class="bar"></span><img src="./icons/one.webp" alt="1 (2048 game)"><b>1 (2048 game)</b></a>
             <a id="100 Player Pong" class="glink" href="./play/100-player-pong/" target="_blank"><span class="bar"></span><img src="./icons/100pong.webp"><b>100 Player Pong</b></a>
-            <a id="10 Minutes Till Dawn" class="link" href="./play/10-minutes-till-dawn/" target="_blank"><span class="bar"></span><img src="./icons/10m.webp"><b>10 Minutes Till Dawn</b></a>
+            <a id="Google Classroom" class="link" href="./play/10-minutes-till-dawn/" target="_blank"><span class="bar"></span><img src="./icons/10m.webp"><b>10 Minutes Till Dawn</b></a>
             <a id="123movies" class="link stream" href="./play/123movies/" target="_blank"><span class="bar"></span><img src="./icons/123movies.webp"><b>123movies</b><span class="badge"><i class="fa-solid fa-file-video"></i> STREAMING</span></a>
             <a id="1v1.lol" class="link pop" href="./play/1v1/" target="_blank"><span class="bar"></span><img src="./icons/1v1.webp"><b>1v1.lol</b>  <span class="badge"><i class="fa-solid fa-star"></i> POPULAR</span><span class="badge"></a>
             <a id="1v1.space" class="link" href="./play/1v1space/" target="_blank"><span class="bar"></span><img src="./icons/1v1space.webp"><b>1v1.space</b></a>
@@ -184,10 +473,17 @@
             <a id="Yoshifabrication" class="link" href="./play/yoshifabrication/" target="_blank"><span class="bar"></span><img src="./icons/yoshifabrication.webp"><b>Yoshifabrication</b></a>
             <a id="Zoro" class="link stream" href="./play/zoro/" target="_blank"><span class="bar"></span><img src="./icons/zoro.webp"><b>Zoro.to</b><span class="badge"><i class="fa-solid fa-file-video"></i> STREAMING</span></a>
             <p class="game_title">This project is completely open source! If you want to make your own version of this site <a class="epci" href="https://github.com/OddPvP/unblockedgames">click here</a> for more information! You can also see the beta site with more games <a class="epci" href="https://games.odd.gay/">here</a>!</p>
-            <p class="game_title">Have any suggestions? Please tell us in our <a class="epci" href="https://discord.gg/xksWyP9aJv">discord server</a> or email us at requests@odd.gay in our <a class="epci" href="https://discord.gg/xksWyP9aJv">discord server</a> we also have many more links! So join in case this one gets blocked by your school!</p>
+            <p class="game_title">Have any suggestions? Please tell us in our <a class="epci" href="https://discord.gg/xksWyP9aJv">discord server</a> or email us at requests@odd.gay in our <a class="epci" href="https://discord.gg/xksWyP9aJv">discord server</a> we also have many more links! So join in case this one gets blocked</p>
+            <p class="game_title">Please do not play these games in school without permission. Doing so anyways can result in loss of computer and/or other school punnishment.  You also agree that we are using analysis to collect data like how you are on the website, like how many live users are on the website, and what games you play.</p>
+            <p class="game_title">Want to see the Update Log? <a class="epci" href="https://docs.google.com/document/d/1SQ0lhWSVgZq-Jcy_tQaoz-U7TyHfHDRgnL4EJqzT59o/edit?usp=sharing">click here</a> 
         </div>
 
-<!-- Popular games stats -->
+<a href="https://schoolookup.ga/" target="_blank" style="display: inline-block; background-color: #f5f5f5; border-radius: 10px; padding: 10px; text-decoration: none; color: #333; font-weight: bold; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+  <img src="https://schoolookup.ga/logo.png" alt="Best Proxy" style="display: block; margin: 0 auto; width: 50px; height: 50px; border-radius: 10px;">
+  <span style="display: block; margin-top: 10px;">Best Proxy</span>
+</a>
+            
+            <!-- Popular games stats -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -261,4 +557,45 @@
 
         </script>
     </body>
+</html>
+	</div>
+	<script>
+		var attempts = 0;
+
+		// Check if the password is correct when the form is submitted
+		document.querySelector("#password-form form").addEventListener("submit", function(event) {
+			event.preventDefault();
+			var password = document.querySelector("#password").value.toLowerCase();
+			if (password === "creeper") {
+				// Set a cookie to remember the password
+				document.cookie = "password=creeper; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+				document.querySelector("#password-form").style.display = "none";
+				document.querySelector("#website-content").style.display = "block";
+				document.querySelector("style").disabled = false;
+			} else {
+				attempts++;
+				if (attempts >= 5) {
+					// Set a cookie to ban the user for 10 minutes
+					document.cookie = "ban=true; expires=" + new Date(Date.now() + 10 * 60 * 1000).toUTCString();
+					alert("To keep our website safe, you have been banned for 10 minutes.");
+					document.querySelector("#password-form").style.display = "none";
+				} else {
+					alert("Incorrect answer. Please try again.");
+				}
+			}
+		});
+
+		// Check if the cookie exists when the page loads
+		if (document.cookie.indexOf("password=creeper") !== -1) {
+			document.querySelector("#password-form").style.display = "none";
+			document.querySelector("#website-content").style.display = "block";
+			document.querySelector("style").disabled = false;
+		} else if (document.cookie.indexOf("ban=true") !== -1) {
+			document.querySelector("#password-form").style.display = "none";
+			alert("You are currently banned. Please try again later.");
+		} else {
+			document.querySelector("style").disabled = true;
+		}
+	</script>
+</body>
 </html>
