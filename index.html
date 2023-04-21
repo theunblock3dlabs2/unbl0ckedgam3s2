@@ -503,11 +503,60 @@ h6{
             <p class="game_title">Want to see the Update Log? <a class="epci" href="https://docs.google.com/document/d/1SQ0lhWSVgZq-Jcy_tQaoz-U7TyHfHDRgnL4EJqzT59o/edit?usp=sharing">click here</a> 
         </div>
 
-<a href="https://67.207.72.190/" target="_blank" style="display: inline-block; background-color: #f5f5f5; border-radius: 10px; padding: 10px; text-decoration: none; color: #333; font-weight: bold; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
-  <img src="https://67.207.72.190/images/logo.png" alt="Proxy" style="display: block; margin: 0 auto; width: 150px; height: 50px; border-radius: 10px;">
-  <span style="display: block; margin-top: 10px;">Proxy</span>
-</a>
-            
+<div class="button-wrapper">
+  <a href="https://67.207.72.190/" class="my-button">
+    <span class="my-button-text">
+      <img src="https://67.207.72.190/images/logo.png" alt="Logo" width="150" height="50">
+    </span>
+    <span class="button-label">Proxy</span>
+  </a>
+</div>
+
+<style>
+.button-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+.my-button {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  color: #007bff;
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.my-button:hover {
+  background-color: #f5f5f5;
+}
+.my-button-text {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 5px;
+}
+.my-button img {
+  display: block;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  border-radius: 5px;
+}
+.button-label {
+  display: block;
+  text-align: center;
+  color: #000;
+  font-size: 14px;
+  margin-top: 5px;
+}
+</style>
+
+   
             <!-- Popular games stats -->
 <script>
   var _paq = window._paq = window._paq || [];
