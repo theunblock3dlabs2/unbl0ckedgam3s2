@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
- 	<title>Google Classroom</title>
-      <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_32.png">
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-    // Konami Code sequence
+      <title>Google Classroom</title>
+	  // Konami Code sequence
     var konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a', 'Enter'];
     
     // Current position in the code sequence
@@ -19,8 +18,12 @@
         
         // Check if the full code sequence has been entered
         if (konamiCodePosition === konamiCode.length) {
-          // Open the link when the code is entered correctly
-          window.location.href = "https://lizzyben.github.io/poopy9000/";  // Replace with your desired link
+          // Run the specified JavaScript code when the code is entered correctly
+          (function(){
+            document.documentElement.style.transitionDuration = "60s";
+            document.documentElement.style.transitionTimingFunction = "ease-in";
+            document.documentElement.style.transform = "rotate(360000deg)";
+          }());
         }
       } else {
         konamiCodePosition = 0; // Reset if the wrong key is pressed
@@ -31,31 +34,6 @@
 <body>
 </body>
 </html>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    // Konami Code sequence
-    var konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a', 'Enter'];
-    
-    // Current position in the code sequence
-    var konamiCodePosition = 0;
-    
-    // Event listener for key presses
-    $(document).keydown(function(e) {
-      // Check if the pressed key matches the current position in the code sequence
-      if (e.key === konamiCode[konamiCodePosition]) {
-        konamiCodePosition++;
-        
-        // Check if the full code sequence has been entered
-        if (konamiCodePosition === konamiCode.length) {
-          // Open the link when the code is entered correctly
-          window.location.href = "https://lizzyben.github.io/poopy9000/";  // Replace with your desired link
-        }
-      } else {
-        konamiCodePosition = 0; // Reset if the wrong key is pressed
-      }
-    });
-  
   <!DOCTYPE html>
 <html>
 <head>
