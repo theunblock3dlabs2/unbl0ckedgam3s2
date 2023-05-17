@@ -369,6 +369,89 @@ h6{
 <body>
 </body>
 </html>
+  <style>
+    /* Add your CSS styles here */
+    body {
+      background-color: #1C1C1C;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Karla', sans-serif;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      background-color: #292929;
+      color: #E6E6E6;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
+      background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+      z-index: 1;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    button:hover {
+      background-color: #3d3d3d;
+    }
+
+    button:hover::before {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="pickRandomGame()">Pick random game</button>
+
+  <script>
+    function pickRandomGame() {
+      var gameUrls = [
+        "https://poopy-games-beta.netlify.app/play/basketball-stars/",
+        "https://poopy-games-beta.netlify.app/play/ages-of-conflict/",
+        "https://poopy-games-beta.netlify.app/play/10-minutes-till-dawn/",
+        "https://poopy-games-beta.netlify.app/play/paperio/",
+        "https://poopy-games-beta.netlify.app/play/slope/",
+        "https://poopy-games-beta.netlify.app/play/minecraft/",
+        "https://poopy-games-beta.netlify.app/play/1/",
+        "https://poopy-games-beta.netlify.app/play/100-player-pong/",
+        "https://poopy-games-beta.netlify.app/play/1v1/",
+        "https://poopy-games-beta.netlify.app/play/1v1space/",
+        "https://poopy-games-beta.netlify.app/play/2048/",
+        "https://poopy-games-beta.netlify.app/play/achievementunlocked/",
+        "https://poopy-games-beta.netlify.app/play/adarkroom/",
+        "https://poopy-games-beta.netlify.app/play/alienhominid/",
+        "https://poopy-games-beta.netlify.app/play/amidst-the-clouds/",
+        "https://poopy-games-beta.netlify.app/play/bloonstd4/",
+        "https://poopy-games-beta.netlify.app/play/eggy-car/"
+      ];
+
+      var randomIndex = Math.floor(Math.random() * gameUrls.length);
+      var randomGameUrl = gameUrls[randomIndex];
+
+      window.location.href = randomGameUrl;
+    }
+  </script>
+</body>
+</html>
+
         <div id="links" class="animated fadeInLeft delay-1s games">
             <div class="game_title"><input placeholder="Search" id="search" class="search" onkeyup="search_it()" type="search"><select id="tags" class="button" onclick="search_it()"><option value="all">All Farts</option><option value="pop">Popular</option><option value="two">Two Player</option><option value="stream">Streaming (Broken)</option><option value="bad">Bad Farts</option></select></div>
             <h2 class="animated jello game_title">All farts:</h2>
@@ -542,15 +625,6 @@ h6{
             <p class="game_title">Please do not play these games in school without permission. Doing so anyways can result in loss of computer and/or other school punnishment.  You also agree that we are using analysis to collect data like how you are on the website, like how many live users are on the website, and what games you play.</p>
             <p class="game_title">Want to see the Update Log? <a class="epci" href="https://docs.google.com/document/d/1SQ0lhWSVgZq-Jcy_tQaoz-U7TyHfHDRgnL4EJqzT59o/edit?usp=sharing">click here</a> 
         </div>
-
-<div class="button-wrapper">
-  <a href="/external.html" class="my-button">
-    <span class="my-button-text">
-      <img src="https://67.207.72.190/images/logo.png" alt="Logo" width="150" height="50">
-    </span>
-    <span class="button-label">Proxy</span>
-  </a>
-</div>
 
 
 <style>
