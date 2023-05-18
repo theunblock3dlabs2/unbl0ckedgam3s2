@@ -474,27 +474,12 @@ h6{
   <button onclick="pickRandomGame()">Pick random game</button>
 
   <script>
-    function setCookie(cname, cvalue, exdays) {
-      var d = new Date();
-      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-      var expires = "expires=" + d.toUTCString();
-      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
-
-    function getCookie(cname) {
-      var name = cname + "=";
-      var decodedCookie = decodeURIComponent(document.cookie);
-      var ca = decodedCookie.split(';');
-      for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) === ' ') {
-          c = c.substring(1);
-        }
-        if (c.indexOf(name) === 0) {
-          return c.substring(name.length, c.length);
-        }
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
       }
-      return "";
+      return array;
     }
 
     function pickRandomGame() {
@@ -509,8 +494,11 @@ h6{
         "https://poopy-games-beta.netlify.app/play/100-player-pong/",
         "https://poopy-games-beta.netlify.app/play/1v1/",
         "https://poopy-games-beta.netlify.app/play/1v1space/",
+	"https://poopy-games-beta.netlify.app/play/ballistic-chickens/",
         "https://poopy-games-beta.netlify.app/play/2048/",
         "https://poopy-games-beta.netlify.app/play/achievementunlocked/",
+	"https://poopy-games-beta.netlify.app/play/idle-breakout/",
+	"https://poopy-games-beta.netlify.app/play/breakout/",
         "https://poopy-games-beta.netlify.app/play/adarkroom/",
         "https://poopy-games-beta.netlify.app/play/alienhominid/",
         "https://poopy-games-beta.netlify.app/play/amidst-the-clouds/",
@@ -518,30 +506,31 @@ h6{
         "https://poopy-games-beta.netlify.app/play/eggy-car/"
       ];
 
-      var cookieName = "recentlyPickedGames";
-      var recentlyPickedGames = getCookie(cookieName);
-      var pickedGames = recentlyPickedGames ? JSON.parse(recentlyPickedGames) : [];
-
-      if (pickedGames.length >= 5) {
-        alert("You need to wait for the games to refresh.");
-        return;
+      if (!localStorage.getItem("pickedGames")) {
+        localStorage.setItem("pickedGames", JSON.stringify([]));
       }
 
-      var randomIndex;
-      do {
-        randomIndex = Math.floor(Math.random() * gameUrls.length);
-      } while (pickedGames.includes(randomIndex));
+      var pickedGames = JSON.parse(localStorage.getItem("pickedGames"));
 
-      var randomGameUrl = gameUrls[randomIndex];
-      pickedGames.push(randomIndex);
+      if (pickedGames.length === gameUrls.length) {
+        pickedGames = [];
+      }
 
-      setCookie(cookieName, JSON.stringify(pickedGames), 5);
+      var remainingGames = gameUrls.filter((gameUrl) => !pickedGames.includes(gameUrl));
+
+      remainingGames = shuffleArray(remainingGames);
+
+      var randomGameUrl = remainingGames[0];
+      pickedGames.push(randomGameUrl);
+
+      localStorage.setItem("pickedGames", JSON.stringify(pickedGames));
 
       window.location.href = randomGameUrl;
     }
   </script>
 </body>
 </html>
+
 
 
         <div id="links" class="animated fadeInLeft delay-1s games">
