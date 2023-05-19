@@ -470,67 +470,7 @@ h6{
       opacity: 1;
     }
   </style>
-</head>
-<body>
-  <button onclick="pickRandomGame()">Pick random game</button>
 
-  <script>
-    function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
-
-    function pickRandomGame() {
-      var gameUrls = [
-        "https://poopy-games-beta.netlify.app/play/basketball-stars/",
-        "https://poopy-games-beta.netlify.app/play/ages-of-conflict/",
-        "https://poopy-games-beta.netlify.app/play/10-minutes-till-dawn/",
-        "https://poopy-games-beta.netlify.app/play/paperio/",
-        "https://poopy-games-beta.netlify.app/play/slope/",
-        "https://poopy-games-beta.netlify.app/play/minecraft/",
-        "https://poopy-games-beta.netlify.app/play/1/",
-        "https://poopy-games-beta.netlify.app/play/100-player-pong/",
-        "https://poopy-games-beta.netlify.app/play/1v1/",
-        "https://poopy-games-beta.netlify.app/play/1v1space/",
-	"https://poopy-games-beta.netlify.app/play/ballistic-chickens/",
-        "https://poopy-games-beta.netlify.app/play/2048/",
-        "https://poopy-games-beta.netlify.app/play/achievementunlocked/",
-	"https://poopy-games-beta.netlify.app/play/idle-breakout/",
-	"https://poopy-games-beta.netlify.app/play/breakout/",
-        "https://poopy-games-beta.netlify.app/play/adarkroom/",
-        "https://poopy-games-beta.netlify.app/play/alienhominid/",
-        "https://poopy-games-beta.netlify.app/play/amidst-the-clouds/",
-        "https://poopy-games-beta.netlify.app/play/bloonstd4/",
-        "https://poopy-games-beta.netlify.app/play/eggy-car/"
-      ];
-
-      if (!localStorage.getItem("pickedGames")) {
-        localStorage.setItem("pickedGames", JSON.stringify([]));
-      }
-
-      var pickedGames = JSON.parse(localStorage.getItem("pickedGames"));
-
-      if (pickedGames.length === gameUrls.length) {
-        pickedGames = [];
-      }
-
-      var remainingGames = gameUrls.filter((gameUrl) => !pickedGames.includes(gameUrl));
-
-      remainingGames = shuffleArray(remainingGames);
-
-      var randomGameUrl = remainingGames[0];
-      pickedGames.push(randomGameUrl);
-
-      localStorage.setItem("pickedGames", JSON.stringify(pickedGames));
-
-      window.location.href = randomGameUrl;
-    }
-  </script>
-</body>
-</html>
 
 
 
@@ -540,7 +480,69 @@ h6{
             <a id="Basketball Stars" class="link" href="./play/basketball-stars/" target="_blank"><span class="bar"></span><img src="./icons/BAS.webp"><b>Basketball Stars</b><span class="badge"><i class="fa-solid fa-user"></i> RECOMMENDED</span></a>
 	    <a id="Feature Request Form" class="link" onclick="window.location = 'https://forms.gle/ztERQ4wkuM42Z3Kd6';" target="_blank"><span class="bar"></span><img src="/icons/forms.jpeg"><b>Game Request</b><span class="badge"><i class="fa-solid fa-user"></i> RECOMMENDED</span></a>
         <a id="Ages of Conflict" class="link" href="./play/ages-of-conflict/" target="_blank"><span class="bar"></span><img src="./icons/ages-of-conflict.webp"><b>Ages of Conflict</b><span class="badge"><i class="fa-solid fa-user"></i> RECOMMENDED</span></a>
-            <a id="Google Classroom" class="link" href="./play/10-minutes-till-dawn/" target="_blank"><span class="bar"></span><img src="./icons/10m.webp"><b>10 Minutes Till Dawn</b><span class="badge"><i class="fa-solid fa-user"></i> RECOMMENDED</span></a>
+ <a id="randomGameLink" class="link" href="#" onclick="redirectRandomGame(event)"><span class="bar"></span><img src="./icons/BAS.webp"><b>Random Game</b><span class="badge"><i class="fa-solid fa-user"></i> RECOMMENDED</span></a>
+
+<script>
+  function redirectRandomGame(event) {
+    event.preventDefault();
+
+    // Array of game URLs
+    var gameUrls = [
+      "https://poopy-games-beta.netlify.app/play/basketball-stars/",
+      "https://poopy-games-beta.netlify.app/play/ages-of-conflict/",
+      "https://poopy-games-beta.netlify.app/play/10-minutes-till-dawn/",
+      "https://poopy-games-beta.netlify.app/play/paperio/",
+      "https://poopy-games-beta.netlify.app/play/slope/",
+      "https://poopy-games-beta.netlify.app/play/minecraft/",
+      "https://poopy-games-beta.netlify.app/play/1/",
+      "https://poopy-games-beta.netlify.app/play/100-player-pong/",
+      "https://poopy-games-beta.netlify.app/play/1v1/",
+      "https://poopy-games-beta.netlify.app/play/1v1space/",
+      "https://poopy-games-beta.netlify.app/play/ballistic-chickens/",
+      "https://poopy-games-beta.netlify.app/play/2048/",
+      "https://poopy-games-beta.netlify.app/play/achievementunlocked/",
+      "https://poopy-games-beta.netlify.app/play/idle-breakout/",
+      "https://poopy-games-beta.netlify.app/play/breakout/",
+      "https://poopy-games-beta.netlify.app/play/adarkroom/",
+      "https://poopy-games-beta.netlify.app/play/alienhominid/",
+      "https://poopy-games-beta.netlify.app/play/amidst-the-clouds/",
+      "https://poopy-games-beta.netlify.app/play/bloonstd4/",
+      "https://poopy-games-beta.netlify.app/play/eggy-car/"
+    ];
+
+    // Check if 'visitedGames' cookie exists
+    var visitedGames = getCookie('visitedGames');
+    if (visitedGames && visitedGames.length === gameUrls.length) {
+      // All games have been visited, reset the cookie
+      document.cookie = 'visitedGames=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    }
+
+    // Get a random unvisited game URL
+    var unvisitedGames = gameUrls.filter(url => !visitedGames || !visitedGames.includes(url));
+    var randomIndex = Math.floor(Math.random() * unvisitedGames.length);
+    var randomGameUrl = unvisitedGames[randomIndex];
+
+    // Redirect to the random game URL
+    window.location.href = randomGameUrl;
+
+    // Update 'visitedGames' cookie to include the visited game URL
+    document.cookie = 'visitedGames=' + (visitedGames ? visitedGames + ',' : '') + randomGameUrl + '; path=/;';
+  }
+
+  // Function to retrieve cookie value by name
+  function getCookie(name) {
+    var cookies = document.cookie.split('; ');
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].split('=');
+      if (cookie[0] === name) {
+        return cookie[1];
+      }
+    }
+    return null;
+  }
+</script>
+
+            <a id="10-minutes" class="link" href="./play/10-minutes-till-dawn/" target="_blank"><span class="bar"></span><img src="./icons/10m.webp"><b>10 Minutes Till Dawn</b><span class="badge"><i class="fa-solid fa-user"></i> RECOMMENDED</span></a>
             <a id="Paper.io 2" class="link" href="./play/paperio/" target="_blank"><span class="bar"></span><img src="./icons/paperio.webp"><b>Paper.io 2</b><span class="badge"><i class="fa-solid fa-user"></i> RECOMMENDED</span></a>
             <a id="Slope" class="link pop" href="./play/slope/" target="_blank"><span class="bar"></span><img src="./icons/slope.webp"><b>Slope</b><span class="badge"><i class="fa-solid fa-user"></i> RECOMMENDED</span></a>
 	    <a id="Minecraft" class="link pop" href="./play/minecraft/" target="_blank"><span class="bar"></span><img src="./icons/minecraft.webp"><b>Minecraft</b><span class="badge"><i class="fa-solid fa-user"></i> RECOMMENDED</span></a>
