@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
- 
+ <script>
+  // Define your old and new domain URLs
+  var oldDomain = 'https://poopy-games-beta.netlify.app/';
+  var newDomain = 'https://mathwiz.fun/';
+
+  // Check if the user is on the old domain
+  if (window.location.href.indexOf(oldDomain) === 0) {
+    // Redirect to the new domain
+    window.location.href = newDomain;
+  }
+</script>
+
  <title>Google Classroom</title>
 	<link rel="icon" href="icons/favicon.ico" type="image/x-icon">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
