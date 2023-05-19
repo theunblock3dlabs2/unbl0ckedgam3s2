@@ -1,7 +1,7 @@
 <h1>Poopy Games</h1>
 
 
-<p>Welcome to Poopy Games.fun, a fantastic game website that guarantees endless fun and excitement! Prepare yourself for a thrilling gaming experience that will keep you entertained for hours.</p>
+<p>Welcome to Poopy Games, a fantastic game website that guarantees endless fun and excitement! Prepare yourself for a thrilling gaming experience that will keep you entertained for hours.</p>
 
 <h2>About Poopy Games</h2>
 
