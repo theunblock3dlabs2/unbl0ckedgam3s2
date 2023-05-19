@@ -1,6 +1,5 @@
 <h1>MathWiz.fun</h1>
 
-<img src="https://mathwiz.fun/static/images/logo.png" alt="MathWiz.fun">
 
 <p>Welcome to MathWiz.fun, a fantastic game website that guarantees endless fun and excitement! Prepare yourself for a thrilling gaming experience that will keep you entertained for hours.</p>
 
