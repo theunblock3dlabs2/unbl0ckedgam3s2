@@ -48,7 +48,6 @@
 </body>
 </html>
 <html>
-<head>
 <style>
 		/* Your CSS code goes here */
 		/* Style Settings */
@@ -483,6 +482,111 @@ h6{
         <div id="links" class="animated fadeInLeft delay-1s games">
             <div class="game_title"><input placeholder="Search" id="search" class="search" onkeyup="search_it()" type="search"><select id="tags" class="button" onclick="search_it()"><option value="all">All Farts</option><option value="pop">Popular</option><option value="two">Two Player</option><option value="stream">Streaming (Broken)</option><option value="bad">Bad Farts</option></select></div>
             <h2 class="animated jello game_title">All farts:</h2>
+            
+            <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS for the popup */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      z-index: 9999;
+    }
+    
+    /* CSS for the close button */
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+    
+    /* CSS for the button and description rows */
+    .button-row {
+      margin-bottom: 10px;
+    }
+    
+    .button-row button {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <a id="Bookmarklets" class="link" href="#" onclick="openPopup(event)">
+    <span class="bar"></span>
+    <img src="./icons/codr.webp">
+    <b>Bookmarklets (Comming Soon)</b>
+    <span class="badge"><i class="fa-solid fa-user"></i>FUNCTION</span>
+  </a>
+
+  <script>
+    function openPopup(event) {
+      event.preventDefault(); // Prevent default link behavior
+      
+      // Create the popup element
+      var popup = document.createElement('div');
+      popup.className = 'popup';
+      
+      // Create the close button
+      var closeButton = document.createElement('span');
+      closeButton.className = 'close';
+      closeButton.innerHTML = '&times;';
+      closeButton.addEventListener('click', function() {
+        document.body.removeChild(popup); // Remove the popup when the close button is clicked
+      });
+      popup.appendChild(closeButton);
+      
+      // Create the button and description rows
+     var buttonRow1 = createButtonRow('History Flooder', 'floods history with website your on', 'javascript:(function()%7Bvar num%3Dprompt("How Times Do You Want This Page To Show Up In your History%3F")%3Bdone%3Dfalse%3Bx%3Dwindow.location.href%3Bfor (var i%3D1%3B i<%3Dnum%3B i%2B%2B)%7Bhistory.pushState(0%2C 0%2C i%3D%3Dnum%3Fx%3Ai.toString())%3Bif(i%3D%3Dnum)%7Bdone%3Dtrue%7D%7Dif(done%3D%3D%3Dtrue)%7Balert("History Flooding Successful!%5Cn "%2Bwindow.location.href%2B" %5CnNow Appears In Your History "%2Bnum%2B(num%3D%3D1%3F" time."%3A" Times. %5CnMade By%3A Utopia"))%7D%7D)()%3B');
+      var buttonRow2 = createButtonRow('Comming Soon', ' ', ' ');
+      var buttonRow3 = createButtonRow('Comming Soon', ' ', ' ');
+      
+      popup.appendChild(buttonRow1);
+      popup.appendChild(buttonRow2);
+      popup.appendChild(buttonRow3);
+      
+      // Append the popup to the body
+      document.body.appendChild(popup);
+    }
+    
+    function createButtonRow(buttonText, description, textToCopy) {
+      var buttonRow = document.createElement('div');
+      buttonRow.className = 'button-row';
+      
+      var button = document.createElement('button');
+      button.textContent = buttonText;
+      button.addEventListener('click', function() {
+        copyTextToClipboard(textToCopy); // Call the function to copy the text when the button is clicked
+      });
+      
+      var descriptionElement = document.createElement('span');
+      descriptionElement.textContent = description;
+      
+      buttonRow.appendChild(button);
+      buttonRow.appendChild(descriptionElement);
+      
+      return buttonRow;
+    }
+
+    function copyTextToClipboard(text) {
+      var dummyElement = document.createElement('textarea');
+      dummyElement.value = text;
+      document.body.appendChild(dummyElement);
+      dummyElement.select();
+      document.execCommand('copy');
+      document.body.removeChild(dummyElement);
+    }
+  </script>
+</body>
+</html>
+
             <a id="randomGameLink" class="link" href="#" onclick="redirectRandomGame(event)"><span class="bar"></span><img src="./icons/rand.webp"><b>Random Game</b><span class="badge"><i class="fa-solid fa-user"></i> RECOMMENDED</span></a>
 
 <script>
