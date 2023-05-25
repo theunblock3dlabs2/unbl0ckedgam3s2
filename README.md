@@ -23,4 +23,4 @@
 
 <h2>Join the Fun!</h2>
 
-<p>Experience the excitement of Poopy Games and explore our extensive collection of thrilling games. Visit us at <a href="https://mathwiz.fun/">MathWiz.fun</a> and join the fun today!</p>
+<p>Experience the excitement of Poopy Games and explore our extensive collection of thrilling games. Visit us at <a href="https://poopy-games.netlify.app/">Click Here</a> and join the fun today!</p>
