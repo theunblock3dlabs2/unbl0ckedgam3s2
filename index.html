@@ -1,48 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Google Classroom</title>
-	<link rel="icon" href="icons/favicon.ico" type="image/x-icon">
-	<style>
-    body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  </style>
-</head>
-<body onclick="openFullscreen()">
-
-  <script>
-    /* Get the documentElement (<html>) to display the page in fullscreen */
-    var elem = document.documentElement;
-
-    /* View in fullscreen */
-    function openFullscreen() {
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
-      }
-    }
-
-    /* Close fullscreen */
-    function closeFullscreen() {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.webkitExitFullscreen) { /* Safari */
-        document.webkitExitFullscreen();
-      } else if (document.msExitFullscreen) { /* IE11 */
-        document.msExitFullscreen();
-      }
-    }
-  </script>
-<!DOCTYPE html>
-<html>
-<head>
    <script>
   
 </script>
@@ -66,7 +24,8 @@
   }
 </script>
 
- 
+ <title>Google Classroom</title>
+	<link rel="icon" href="icons/favicon.ico" type="image/x-icon">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     // Konami Code sequence
@@ -1066,7 +1025,5 @@ function openSubdomain(event) {
 			document.querySelector("style").disabled = true;
 		}
 	</script>
-</body>
-</html>
 </body>
 </html>
